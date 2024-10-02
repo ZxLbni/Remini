@@ -81,8 +81,8 @@ async def enhance_photo_and_send_link(file_path: str, chat_id: int):
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
     keyboard = InlineKeyboardMarkup(row_width=2)
-    dev_button = InlineKeyboardButton("Dev 👨‍💻", url="https://t.me/TheSmartBisnu")
-    update_button = InlineKeyboardButton("Update ✅", url="https://t.me/PremiumNetworkTeam")
+    dev_button = InlineKeyboardButton("Dev 👨‍💻", url="https://t.me/l_abani")
+    update_button = InlineKeyboardButton("Update ✅", url="https://t.me/NOOBPrivate")
     keyboard.add(dev_button, update_button)
 
     await bot.send_message(
