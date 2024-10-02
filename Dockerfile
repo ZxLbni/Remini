@@ -1,24 +1,24 @@
-# Use the official Python image from the Docker Hub
-FROM python:3.11-slim
+# Use an official Python runtime as a parent image
+FROM python:3.10-slim
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file into the container
-COPY requirements.txt /app/
+# Copy the requirements file to the container
+COPY requirements.txt /app/requirements.txt
 
-# Install the dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install any dependencies
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Copy the rest of the application code into the container
-COPY . /app/
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# Expose port 5000 for Flask
+# Expose the port that Flask will run on
 EXPOSE 5000
 
-# Command to run the Flask app
+# Set environment variables for Flask
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=production
+
+# Command to run your application using Flask and aiogram
 CMD ["python", "app.py"]
